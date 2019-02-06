@@ -93,7 +93,7 @@ function palindrome3(s) {
   return tmp === reverseString9(tmp);
 }
 
-// Reverse an integer
+// 3. Reverse an integer
 
 function reverseInt(n) {
   const str = n.toString();
@@ -107,4 +107,28 @@ function reverseInt2(n) {
     n = Math.floor(n / 10);
   }
   return reversed;
+}
+
+// 4. Capitalize letters
+
+function capitalize1(s) {
+  const strArr = s.toLowerCase().split(' ');
+
+  for (let i = 0; i < strArr.length; i++) {
+    strArr[i] = strArr[i].substring(0, 1).toUpperCase() + strArr[i].substring(1);
+  }
+
+  return strArr.join(' ');
+}
+
+function capitalize2(s) {
+  return s
+    .toLowerCase()
+    .split(' ')
+    .map(word => word[0].toUpperCase() + word.substring(1))
+    .join(' ');
+}
+
+function capitalize3(s) {
+  return s.replace(/\b[a-z]/gi, char => char.toUpperCase());
 }
