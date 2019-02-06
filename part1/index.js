@@ -132,3 +132,55 @@ function capitalize2(s) {
 function capitalize3(s) {
   return s.replace(/\b[a-z]/gi, char => char.toUpperCase());
 }
+
+// Max occuring character in a string
+
+function maxChar1(s) {
+  const charMap = {};
+  let max = 0;
+  let maxOccuringChar = '';
+
+  s.split('').forEach(char => {
+    if (!charMap[char]) {
+      charMap[char] = 1;
+    } else {
+      charMap[char]++;
+    }
+  });
+
+  Object.keys(charMap).forEach(key => {
+    if (charMap[key] > max) {
+      max = charMap[key];
+      maxOccuringChar = key;
+    }
+  });
+
+  return {
+    maxChar: maxOccuringChar,
+    occurence: max
+  };
+}
+
+function maxChar2(s) {
+  const sorted = s.split('').sort();
+  const max = {char: '', count: 0};
+  const current = {char: '', count: 0};
+
+  sorted.forEach(char => {
+    if (current.char === char) {
+      current.count++;
+    } else {
+      if (max.count < current.count) {
+        max.char = current.char;
+        max.count = current.count;
+      }
+      current.char = char;
+      current.count = 0;
+    }
+  });
+
+  return {
+    maxChar: max.char,
+    occurence: max.count
+  };
+}
