@@ -93,3 +93,18 @@ function palindrome3(s) {
   return tmp === reverseString9(tmp);
 }
 
+// Reverse an integer
+
+function reverseInt(n) {
+  const str = n.toString();
+  return parseInt(reverseString8(str), 10) * Math.sign(n);
+}
+
+function reverseInt2(n) {
+  let reversed = 0;
+  while (n > 0) {
+    reversed = reversed * 10 + (n % 10);
+    n = Math.floor(n / 10);
+  }
+  return reversed;
+}
