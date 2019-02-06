@@ -133,7 +133,7 @@ function capitalize3(s) {
   return s.replace(/\b[a-z]/gi, char => char.toUpperCase());
 }
 
-// Max occuring character in a string
+// 5. Max occuring character in a string
 
 function maxChar1(s) {
   const charMap = {};
@@ -183,4 +183,27 @@ function maxChar2(s) {
     maxChar: max.char,
     occurence: max.count
   };
+}
+
+// 6. Fizzbuzz
+
+function fizzbuzz1() {
+  for (let i = 0; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log('FIZZBUZZ');
+    } else if (i % 3 === 0) {
+      console.log('FIZZ');
+    } else if (i % 5 === 0) {
+      console.log('BUZZ');
+    } else {
+      console.log(i);
+    }
+  }
+}
+
+function fizzbuzz2() {
+  for (let i = 0; i <= 100; i++) {
+    let a = i % 3 ? (i % 5 ? i : 'Buzz') : i % 5 ? 'Fizz' : 'FizzBuzz';
+    console.log(a);
+  }
 }
