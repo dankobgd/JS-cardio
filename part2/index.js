@@ -61,3 +61,48 @@ function chunkArray4(arr, size) {
   chunked.push(arr.splice(0));
   return chunked;
 }
+
+// 3. Flatten array
+
+function flatten1(arr) {
+  return Array.prototype.concat.apply([], arr);
+}
+
+function flatten2(arr) {
+  return arr.reduce((a, b) => a.concat(b), []);
+}
+
+function flatten3(arr) {
+  return [].concat(...arr)
+}
+
+// 4. Anagram
+
+function anagram(s1, s2) {
+  const fmt = str => {
+    return str
+      .replace(/[^\w]/g, '')
+      .toLowerCase()
+      .split('')
+      .sort()
+      .join('');
+  };
+
+  return fmt(s1) === fmt(s2);
+}
+
+// 5. Letter changes
+
+function letterChanges(s) {
+  let str = s.toLowerCase().replace(/[a-z]/gi, char => {
+    if (char === 'z' || char === 'Z') {
+      return 'a';
+    } else {
+      return String.fromCharCode(char.charCodeAt() + 1);
+    }
+  });
+
+  str = str.replace(/a|e|i|o|u/gi, vowel => vowel.toUpperCase());
+
+  return str;
+}
