@@ -50,3 +50,14 @@ function chunkArray3(arr, size) {
 
   return chunked;
 }
+
+function chunkArray4(arr, size) {
+  const chunked = [];
+
+  while (arr.length >= size) {
+    chunked.push(arr.splice(0, size));
+  }
+
+  chunked.push(arr.splice(0));
+  return chunked;
+}
